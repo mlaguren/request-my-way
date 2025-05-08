@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request My Way</title>
+  <style>
+      body {
+          margin: 0;
+          font-family: sans-serif;
+          background-color: #f4f4f4;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+      }
+
+      header {
+          padding: 2rem;
+          text-align: center;
+          background-color: #222;
+          color: white;
+      }
+
+      header img {
+          max-width: 200px;
+          display: block;
+          margin: 0 auto 1rem;
+      }
+
+      main {
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 2rem;
+      }
+
+      button {
+          background-color: #cc0000;
+          color: white;
+          border: none;
+          padding: 0.75rem 1.5rem;
+          font-size: 1.2rem;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+
+      button:hover {
+          background-color: #990000;
+      }
+
+      footer {
+          text-align: center;
+          padding: 1rem;
+          background-color: #eaeaea;
+          font-size: 0.9rem;
+      }
+
+      footer a {
+          color: #333;
+          text-decoration: none;
+      }
+
+      footer a:hover {
+          text-decoration: underline;
+      }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="./imgs/logo.png" alt="Request My Way Logo" />
+</header>
+
+<main>
+  <button>Create a MyBin</button>
+
+  <p>Request My Way is a Sinatra-powered request bin — perfect for debugging webhooks, testing HTTP clients, or capturing raw requests during development. With one click, you can spin up your own temporary bin (we call them “MyBins”) and instantly start logging requests from third-party services, scripts, or apps.</p>
+</main>
+
+<footer>
+  <p><a href="https://github.com/mlaguren" target="_blank">View on GitHub</a></p>
+</footer>
+
+</body>
+</html>
