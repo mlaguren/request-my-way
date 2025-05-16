@@ -75,7 +75,17 @@
 </header>
 
 <main>
-  <button>Create a MyBin</button>
+  <button onclick="createBin()">Create a MyBin</button>
+
+  <script>
+      async function createBin() {
+          const response = await fetch('/mybin', { method: 'POST' });
+          if (response.redirected) {
+              window.location.href = response.url;
+          }
+      }
+  </script>
+
 
   <p>Request My Way is a Sinatra-powered request bin — perfect for debugging webhooks, testing HTTP clients, or capturing raw requests during development. With one click, you can spin up your own temporary bin (we call them “MyBins”) and instantly start logging requests from third-party services, scripts, or apps.</p>
 </main>

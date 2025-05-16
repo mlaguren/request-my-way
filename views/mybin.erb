@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MyBin <%= bin_id %></title>
+  <style>
+      body {
+          font-family: sans-serif;
+          margin: 2rem;
+          background: #fafafa;
+      }
+      header {
+          padding: 2rem;
+          text-align: center;
+          background-color: #222;
+          color: white;
+      }
+
+      header img {
+          max-width: 200px;
+          display: block;
+          margin: 0 auto 1rem;
+      }
+
+      h1 {
+          font-size: 2rem;
+          color: #333;
+      }
+
+      details {
+          background: #fff;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          margin-bottom: 1rem;
+          padding: 1rem;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      }
+
+      summary {
+          font-weight: bold;
+          cursor: pointer;
+          font-size: 1rem;
+          outline: none;
+      }
+
+      pre {
+          background: #f0f0f0;
+          padding: 1rem;
+          overflow-x: auto;
+          border-radius: 4px;
+          font-size: 0.9rem;
+      }
+
+      form.delete-form {
+          margin-top: 1rem;
+      }
+
+      button.delete-btn {
+          background-color: #e74c3c;
+          color: white;
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+
+      button.delete-btn:hover {
+          background-color: #c0392b;
+      }
+
+      footer {
+          margin-top: 4rem;
+          font-size: 0.9em;
+          color: #888;
+      }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="/imgs/logo.png" alt="Request My Way Logo" />
+  </header>
+  <h1>Make all method requests to <%= request.url %>/api</h1>
+  <hr>
+
+  <% if requests.empty? %>
+    <p>No requests have been made to this bin yet.</p>
+  <% else %>
+    <% requests.each do |req| %>
+      <details>
+        <summary><%= req[:filename] %></summary>
+        <pre><%= JSON.pretty_generate(req[:content]) %></pre>
+        <form class="delete-form" method="post" action="/mybin/<%= bin_id %>/delete">
+          <input type="hidden" name="file" value="<%= req[:filename] %>">
+          <button class="delete-btn" type="submit">Delete</button>
+        </form>
+      </details>
+    <% end %>
+  <% end %>
+
+  <footer>
+    <a href="/">← Back to home</a>
+  </footer>
+</main>
+</body>
+</html>

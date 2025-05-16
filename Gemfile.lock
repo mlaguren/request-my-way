@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.2.0)
+    hashids (1.0.6)
     logger (1.7.0)
     mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
@@ -33,6 +34,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  hashids
   puma
   rackup
   sinatra
